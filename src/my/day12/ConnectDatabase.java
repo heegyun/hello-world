@@ -5,7 +5,7 @@ import java.sql.*;
 public class ConnectDatabase {
 	
 	public static Connection makeConnection() {
-		String url = "jdbc:mysql://localhost:3306/book_db";	// book_db가 생성되어 있어야 한다!
+		String url = "jdbc:mysql://localhost/book_db";	// book_db가 생성되어 있어야 한다!
 		String id = "root";
 		String password = "1234";
 		Connection con = null;
