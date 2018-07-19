@@ -13,8 +13,7 @@ public class MyQuery4 {
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url="jdbc:oracle:thin:@localhost:1521:XE";
-			Connection con=DriverManager.getConnection(url,
-									"scott","tiger");
+			Connection con=DriverManager.getConnection(url,"scott","tiger");
 			System.out.println("DB연결~~");
 			Statement st=con.createStatement();
 
