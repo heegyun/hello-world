@@ -6,17 +6,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MyQuery1 {
-	public static void main(String[] args)
-			throws ClassNotFoundException, SQLException
-		{
-			String driver="org.gjt.mm.mysql.Driver";
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+			String driver="com.mysql.cj.jdbc.Driver";
 			Class.forName(driver);
 			/*1. OracleDriver를 메모리에 로딩한다.
 			   2. OracleDriver객체를 만들어준다.(static initializer를 이용)
 			   3. 드라이버 객체를 DriverManager에 등록해준다.
 			*/
 			System.out.println("드라이버 로딩 성공!");
-			String url="jdbc:mysql://localhost:3306/member?useSSL=false";
+			String url="jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
 			String user="root", pwd="1234";
 			Connection con
 				=DriverManager.getConnection(url, user, pwd);
@@ -24,7 +22,7 @@ public class MyQuery1 {
 
 			Statement stmt=con.createStatement();
 			//sql 문을 실행할 메소드를 가짐
-			String sql="INSERT INTO member VALUES(1,'임꺽정','222-222','서울 강남구')";
+			String sql="INSERT INTO member (name,tel,addr) VALUES('임꺽정','222-222','서울 강남구')";
 			
 			int updateCount=stmt.executeUpdate(sql);	
 			System.out.println(updateCount+"개의 레코드가 삽입됨");
