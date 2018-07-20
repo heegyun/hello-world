@@ -12,7 +12,7 @@ public class MyQuery2 {
 	Connection con;
 	Statement st;
 	BufferedReader key;
-	String url = "jdbc:mysql://localhost:3306/member?useSSL=false";
+	String url = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
 	String user = "root", pwd = "1234";
 
 	public MyQuery2() {
@@ -27,7 +27,7 @@ public class MyQuery2 {
 	}// 생성자----------
 
 	public void dbConnect() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		con = DriverManager.getConnection(url, user, pwd);
 		System.out.println("DB연결 성공~~");
 	}// ------------------
