@@ -7,9 +7,9 @@ import java.sql.Statement;
 
 public class SQLInsertTest {
 	
-	 public static Connection makeConnection()
-	    {
-			String url = "jdbc:mysql://localhost/book_db";	// book_db가 생성되어 있어야 한다!
+	//  JDBC 1, 2 단계  메소드
+	 public static Connection makeConnection() {
+			String url = "jdbc:mysql://localhost:3306/book_db?serverTimezone=UTC";	// book_db가 생성되어 있어야 한다!
 			String id = "root";
 			String password = "1234";
 			Connection con = null;
@@ -24,12 +24,10 @@ public class SQLInsertTest {
 				System.out.println("연결에 실패하였습니다.");
 			}
 			return con;
-	    }
+	    } 
 
-		public static void main(String arg[]) {
-			addBook("Artificial Intellegence", "Addison Wesley", "2002", 35000);
-		}
-
+	
+	 // 3. 레코드 추가하기 메소드 
 		private static void addBook(String title, String publisher, String year,int price) {
 			Connection con = makeConnection();
 			try {
@@ -47,5 +45,9 @@ public class SQLInsertTest {
 				System.out.println(e.getMessage());
 				System.exit(0);
 			}
+		}//
+		
+		public static void main(String arg[]) {
+			addBook("Artificial Intellegence", "Addison Wesley", "2002", 35000);
 		}
 	}
