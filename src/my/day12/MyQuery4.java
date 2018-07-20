@@ -11,9 +11,9 @@ public class MyQuery4 {
 	public static void main(String[] args) 
 			throws Exception
 		{
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url="jdbc:oracle:thin:@localhost:1521:XE";
-			Connection con=DriverManager.getConnection(url,"scott","tiger");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
+			Connection con = DriverManager.getConnection(url, "root", "1234");
 			System.out.println("DB연결~~");
 			Statement st=con.createStatement();
 
@@ -41,8 +41,7 @@ public class MyQuery4 {
 						 String name=rs.getString(2);
 						 String tel=rs.getString(3);
 						 String addr=rs.getString(4);
-						 System.out.println(id+"\t"+name+"\t"+tel
-														+"\t"+addr);
+						 System.out.println(id+"\t"+name+"\t"+tel+"\t"+addr);
 					}//while--------
 					if(rs!=null) rs.close();
 				}else{
