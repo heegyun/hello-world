@@ -8,9 +8,9 @@ import java.sql.Statement;
 public class MyQuery3 {
 	
 	public static void main(String[] args) throws Exception {
-		Class.forName("");
-		String url = "";
-		Connection con = DriverManager.getConnection(url, "", "");
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
+		Connection con = DriverManager.getConnection(url, "root", "1234");
 		System.out.println("DB Con: " + con);
 		Statement st = con.createStatement();
 		String sql = "SELECT * FROM member ORDER BY id DESC";
