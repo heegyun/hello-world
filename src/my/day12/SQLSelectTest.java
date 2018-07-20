@@ -8,14 +8,14 @@ import java.sql.Statement;
 
 public class SQLSelectTest {
 
-	  public static Connection makeConnection()
-	    {
-			String url = "jdbc:mysql://localhost/book_db";	// book_db가 생성되어 있어야 한다!
+	//  JDBC 1, 2 단계  메소드
+	  public static Connection makeConnection()  {
+			String url = "jdbc:mysql://localhost:3306/book_db?serverTimezone=UTC";	// book_db가 생성되어 있어야 한다!
 			String id = "root";
 			String password = "1234";
 			Connection con = null;
 			try {
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				System.out.println("드라이버 적재 성공");
 				con = DriverManager.getConnection(url, id, password);
 				System.out.println("데이터베이스 연결 성공");
@@ -26,6 +26,8 @@ public class SQLSelectTest {
 			}
 			return con;
 	    }
+	  
+	  
 	    public static void main(String arg[]) throws SQLException {
 	        Connection con = makeConnection();
 	        Statement stmt = con.createStatement();
